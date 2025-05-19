@@ -1,5 +1,18 @@
+import { useEffect, useRef } from "react";
+import setCase from "../utils/setCase";
+import isDisabled from "../utils/isDisable";
+import setBtnRules from "../utils/setBtnRules";
+
 type ButtonProps = {
+    icon?: React.ReactElement;
+    icon_position?: "left" | "right";
     children?: React.ReactNode;
+    textCase?: string | undefined;
+    disable_opacity?: string;
+    allow_repeat?: boolean;
+    repeat?: number;
+    allow_timer?: boolean;
+    timer?: number;
     ptop?: React.CSSProperties["paddingTop"];
     pleft?: React.CSSProperties["paddingLeft"];
     pright?: React.CSSProperties["paddingRight"];
@@ -12,7 +25,15 @@ type ButtonProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function Button({
+    icon,
+    icon_position = "left",
     children,
+    textCase,
+    disable_opacity = "0.5",
+    allow_repeat = false,
+    repeat,
+    allow_timer = false,
+    timer = 0,
     ptop,
     pleft,
     pright,
@@ -24,8 +45,14 @@ export default function Button({
     fontSize,
     ...props
 }: ButtonProps) {
+    const sombtnRef = useRef(null);
+    useEffect(() => {
+        isDisabled(sombtnRef.current, disable_opacity);
+        setBtnRules({btn: sombtnRef.current, opacity_level: disable_opacity, allow_repeat: allow_repeat, repeat: repeat, allow_timer: allow_timer, timer: timer})
+    }, [])
     return (
         <button
+            ref={sombtnRef}
             name="sombtn"
             {...props}
             style={{
@@ -41,7 +68,9 @@ export default function Button({
                 ...(props.style || {}),
             }}
         >
-            {children ? children : "Click me"}
+            {icon_position === "left" ? icon : null}
+            {children ? (typeof children === "string" ? setCase(children, textCase) : children) : "Click me"}
+            {icon_position === "right" ? icon : null}
         </button>
     );
 }
