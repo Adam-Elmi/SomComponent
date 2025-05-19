@@ -1,8 +1,12 @@
 [name=sombtn] {
   padding: 10px 15px;
-  background-color: #1e1e1e;
+  background-color: #6200ee;
   color: #fff;
   border: none;
   cursor: pointer;
+  margin: 2px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }
 
