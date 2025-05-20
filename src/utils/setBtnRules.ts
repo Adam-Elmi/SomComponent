@@ -7,6 +7,7 @@ interface Props {
   opacity_level: string;
   allow_timer: boolean;
   timer: number | undefined;
+  disabled_text: string | undefined;
 }
 
 export default function setBtnRules({
@@ -16,6 +17,7 @@ export default function setBtnRules({
   opacity_level,
   allow_timer,
   timer,
+  disabled_text,
 }: Props) {
   let count = 0;
 
@@ -29,19 +31,22 @@ export default function setBtnRules({
           element.disabled = true;
           isDisabled(element, opacity_level);
           count = 0;
-          element.textContent = "Button disabled";
-            
-            if (allow_timer) {
-                setTimeout(() => {
-                    element.disabled = false;
-                    isDisabled(element, opacity_level);
-                     element.innerHTML = content;
+          if (disabled_text) {
+            element.textContent = disabled_text;
+          }
+
+          if (allow_timer) {
+            setTimeout(() => {
+              element.disabled = false;
+              isDisabled(element, opacity_level);
+              if (disabled_text) {
+                element.innerHTML = content;
+              }
             }, timer);
+          }
         }
-    }
-    console.log(count);
-};
-element.addEventListener("click", handle_repeat);
+      };
+      element.addEventListener("click", handle_repeat);
     }
   }
 }
