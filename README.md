@@ -1,1 +1,1 @@
-# SomComponent
+# SomUI
