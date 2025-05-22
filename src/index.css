@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Satisfy";
+    src: url("../src/assets/fonts/Satisfy.ttf");
+}
+
+@font-face {
+    font-family: "SharedTech";
+    src: url("../src/assets/fonts/ShareTechMono.ttf");
+}
+
+@font-face {
+    font-family: "Teko";
+    src: url("../src/assets/fonts/Teko.ttf");
+}
+
+@font-face {
+    font-family: "Jaro";
+    src: url("../src/assets/fonts/Jaro.ttf");
+}
+
+@font-face {
+    font-family: "Fira";
+    src: url("../src/assets/fonts/FiraSans.ttf");
+}
