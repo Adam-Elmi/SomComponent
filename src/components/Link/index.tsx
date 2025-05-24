@@ -1,6 +1,5 @@
 import type { SmartLinkProps } from "./types";
-import { DefaultLink, DescriptiveLink } from "./variants";
-
+import Variants from "./variants";
 const SmartLink: React.FC<SmartLinkProps> = ({
   variant,
   path = "/",
@@ -9,30 +8,26 @@ const SmartLink: React.FC<SmartLinkProps> = ({
   icon_position = "left",
   is_outside,
   show_arrow = false,
+  icon_style,
+  link_title,
+  descriptive_style,
+  descriptive_title,
   ...props
 }) => {
-  switch (variant) {
-    case "descriptive":
-      return (
-        <DescriptiveLink
-          {...{ path, text, icon, is_outside, show_arrow, ...props }}
-        />
-      );
-    default:
-      return (
-        <DefaultLink
-          {...{
-            path,
-            text,
-            icon,
-            icon_position,
-            is_outside,
-            show_arrow,
-            ...props,
-          }}
-        />
-      );
-  }
+  return <Variants {...{
+    variant,
+    path,
+    text,
+    icon,
+    icon_position,
+    is_outside,
+    show_arrow,
+    icon_style,
+    link_title,
+    descriptive_style,
+    descriptive_title,
+    ...props
+  }} />
 };
 
 export default SmartLink;
