@@ -6,7 +6,7 @@ export type SmartHeaderProps = {
             section: string,
             hasDropbox?: boolean,
             dropbox?: [
-                icon: React.ReactElement<HTMLImageElement> | React.ReactElement<SVGElement>,
+                icon: React.ReactElement<HTMLImageElement | SVGElement>,
                 title: string,
                 description: string
             ],
