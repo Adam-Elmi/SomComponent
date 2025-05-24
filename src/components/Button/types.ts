@@ -1,4 +1,5 @@
 export type SmartButtonProps  = {
+  variant?: string;
   icon?: React.ReactElement<HTMLImageElement | SVGElement>;
   icon_position?: "left" | "right";
   label?: string;
@@ -10,5 +11,6 @@ export type SmartButtonProps  = {
     maxClicks?: number;
     wait?: number;
   };
-  onClick: () => void
+  onClick?: () => void,
+  links?: {title: string, url: string}[];
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
