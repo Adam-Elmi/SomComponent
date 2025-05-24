@@ -1,3 +1,4 @@
-export const default_styles = {
+import type{ CSSProperties } from "react";
+export const default_styles: CSSProperties = {
 
 };
