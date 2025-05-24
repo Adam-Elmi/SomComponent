@@ -2,7 +2,7 @@ export type SmartLinkProps = {
     variant?: string;
     path?: string;
     text?: string;
-    icon?: React.ReactElement<SVGElement> | React.ReactElement<HTMLImageElement>
+    icon?: React.ReactElement<HTMLImageElement | SVGElement>
     icon_position?: "left" | "right"
     is_outside?: boolean;
     show_arrow?: boolean;
