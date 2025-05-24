@@ -1,4 +1,5 @@
-export const default_styles = {
+import type{ CSSProperties } from "react";
+export const default_styles: CSSProperties = {
   padding: "10px 15px",
   backgroundColor: "#6200ee",
   color: "#fff",
@@ -9,4 +10,6 @@ export const default_styles = {
   gap: " 5px",
   alignItems: "center",
   justifyContent: "space-between",
+  fontFamily: "Fira",
+  fontSize: "1rem"
 };
